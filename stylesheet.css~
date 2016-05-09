@@ -1,0 +1,19 @@
+p {
+    font-family:Arial;
+    font-size:36px;
+    text-align:center;
+}
+
+span1 {
+    color:red;
+    font-size:66px;
+}
+
+span2 {
+		color:blue;
+}
+
+p2 {
+		font-size:36px;
+		font-family:Arial;
+}
