@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Guide &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+
+
+	<!-- 
+		INFO:
+		Add 'boxed' class to body element to make the layout as boxed style.
+		Example: 
+		<body class="boxed">	
+	-->
+	<body>
+	<p>A minimalistic *cough cough* landing page</p>
+	<ul>
+		<em>things to do</em>
+		<li>get postcode input</li>
+		<li>API Get</li>
+		<li>configure look</li>
+	</ul>
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("input:text").val(function(n, c){
+            return c + " Griffin";
+        });
+    });
+});
+</script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+        <script type="text/javascript" src="js/oauth.js"></script>
+        <script type="text/javascript" src="js/sha1.js"></script>
+        <script type="text/javascript">
+            function query() {
+            	var auth = {
+                //
+                // Update with your auth tokens.
+                //
+                consumerKey : "BVqw4tz8MZxa0Xf-q9Mehw",
+                consumerSecret : "MgCMR8S6q3LVBp_c6SKFYzekGy4",
+                accessToken : "28ezyOcLm4xDIjnobx7dn-QMTVS_c-0z",
+                // This example is a proof of concept, for how to use the Yelp v2 API with javascript.
+                // You wouldn't actually want to expose your access token secret like this in a real application.
+                accessTokenSecret : "CY29gXAsiSDqJTFENUolVRihU8M",
+                serviceProvider : {
+                    signatureMethod : "HMAC-SHA1"
+                }
+            };
+
+
+
+
+            var terms = $("#cuisine").val();
+            var near = $("#postcode").val();
+
+            var accessor = {
+                consumerSecret : auth.consumerSecret,
+                tokenSecret : auth.accessTokenSecret
+            };
+            parameters = [];
+            parameters.push(['term', terms]);
+            parameters.push(['location', near]);
+            parameters.push(['callback', 'cb']);
+            parameters.push(['oauth_consumer_key', auth.consumerKey]);
+            parameters.push(['oauth_consumer_secret', auth.consumerSecret]);
+            parameters.push(['oauth_token', auth.accessToken]);
+            parameters.push(['oauth_signature_method', 'HMAC-SHA1']);
+
+console.log(parameters)
+
+            var message = {
+                'action' : 'http://api.yelp.com/v2/search',
+                'method' : 'GET',
+                'parameters' : parameters
+            };
+
+            OAuth.setTimestampAndNonce(message);
+            OAuth.SignatureMethod.sign(message, accessor);
+
+            var parameterMap = OAuth.getParameterMap(message.parameters);
+            console.log(parameterMap);
+
+            $.ajax({
+                'url' : message.action,
+                'data' : parameterMap,
+                'dataType' : 'jsonp',
+                'jsonpCallback' : 'cb',
+                'success' : function(data, textStats, XMLHttpRequest) {
+                    console.log(data);
+                    //$("body").append(output);
+                }
+            });
+            }
+
+        </script>
+<p>Postcode: <input id="postcode" type="text" name="user" value="Postcode"></p>
+<p>Food type: <select id="cuisine">
+  <option>Fast food</option>
+  <option>Western</option>
+  <option>Japanese</option>
+  <option>Korean</option>
+  <option>Singaporean</option>
+</select></p>
+
+<button onclick="query()">Search for food!</button>
+
+	</body>
+</html>
+
