@@ -55,9 +55,82 @@ $(document).ready(function(){
     });
 });
 </script>
-<p>Name: <input type="text" name="user" value="Peter"></p>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+        <script type="text/javascript" src="js/oauth.js"></script>
+        <script type="text/javascript" src="js/sha1.js"></script>
+        <script type="text/javascript">
+            function query() {
+            	var auth = {
+                //
+                // Update with your auth tokens.
+                //
+                consumerKey : "BVqw4tz8MZxa0Xf-q9Mehw",
+                consumerSecret : "MgCMR8S6q3LVBp_c6SKFYzekGy4",
+                accessToken : "28ezyOcLm4xDIjnobx7dn-QMTVS_c-0z",
+                // This example is a proof of concept, for how to use the Yelp v2 API with javascript.
+                // You wouldn't actually want to expose your access token secret like this in a real application.
+                accessTokenSecret : "CY29gXAsiSDqJTFENUolVRihU8M",
+                serviceProvider : {
+                    signatureMethod : "HMAC-SHA1"
+                }
+            };
 
-<button>Set the value of the input field</button>
+
+
+
+            var terms = $("#cuisine").val();
+            var near = $("#postcode").val();
+
+            var accessor = {
+                consumerSecret : auth.consumerSecret,
+                tokenSecret : auth.accessTokenSecret
+            };
+            parameters = [];
+            parameters.push(['term', terms]);
+            parameters.push(['location', near]);
+            parameters.push(['callback', 'cb']);
+            parameters.push(['oauth_consumer_key', auth.consumerKey]);
+            parameters.push(['oauth_consumer_secret', auth.consumerSecret]);
+            parameters.push(['oauth_token', auth.accessToken]);
+            parameters.push(['oauth_signature_method', 'HMAC-SHA1']);
+
+console.log(parameters)
+
+            var message = {
+                'action' : 'http://api.yelp.com/v2/search',
+                'method' : 'GET',
+                'parameters' : parameters
+            };
+
+            OAuth.setTimestampAndNonce(message);
+            OAuth.SignatureMethod.sign(message, accessor);
+
+            var parameterMap = OAuth.getParameterMap(message.parameters);
+            console.log(parameterMap);
+
+            $.ajax({
+                'url' : message.action,
+                'data' : parameterMap,
+                'dataType' : 'jsonp',
+                'jsonpCallback' : 'cb',
+                'success' : function(data, textStats, XMLHttpRequest) {
+                    console.log(data);
+                    //$("body").append(output);
+                }
+            });
+            }
+
+        </script>
+<p>Postcode: <input id="postcode" type="text" name="user" value="Postcode"></p>
+<p>Food type: <select id="cuisine">
+  <option>Fast food</option>
+  <option>Western</option>
+  <option>Japanese</option>
+  <option>Korean</option>
+  <option>Singaporean</option>
+</select></p>
+
+<button onclick="query()">Search for food!</button>
 
 	</body>
 </html>
