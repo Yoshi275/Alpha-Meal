@@ -78,15 +78,24 @@ $(document).ready(function(){
 
 
 
-            var terms = $("#cuisine").val();
-            var near = $("#postcode").val();
+            near = $("#postcode").val();
+            console.log("location",near);
+            //var cuisine = $("#cuisine").checked();
+
+            var cuisine = [];
+            $.each($("input[name='cuisine']:checked"), function(){            
+
+                cuisine.push($(this).val());
+
+            });
+            console.log("cuisine:",cuisine);
 
             var accessor = {
                 consumerSecret : auth.consumerSecret,
                 tokenSecret : auth.accessTokenSecret
             };
             parameters = [];
-            parameters.push(['term', terms]);
+            parameters.push(['term', cuisine]);
             parameters.push(['location', near]);
             parameters.push(['callback', 'cb']);
             parameters.push(['oauth_consumer_key', auth.consumerKey]);
@@ -122,14 +131,17 @@ console.log(parameters)
 
         </script>
 <p>Postcode: <input id="postcode" type="text" name="user" value="Postcode"></p>
-<p>Food type: <select id="cuisine">
-  <option>Fast food</option>
-  <option>Western</option>
-  <option>Japanese</option>
-  <option>Korean</option>
-  <option>Singaporean</option>
-</select></p>
 
+<p>Cuisine: <form action="demo_form.asp" method="get" id="cuisine">
+  <input type="checkbox" name="cuisine" value="Fast food"> Fast food<br>
+  <input type="checkbox" name="cuisine" value="Western" > Western <br>
+  <input type="checkbox" name="cuisine" value="Japanese" > Japanese <br>
+  <input type="checkbox" name="cuisine" value="Korean" > Korean <br>
+  <input type="checkbox" name="cuisine" value="Singaporean"> Singaporean <br>
+  <input type="checkbox" name="cuisine" value="Mexican" > Mexican <br>
+  <input type="checkbox" name="cuisine" value="Brunch" > Brunch <br>
+  <input type="checkbox" name="cuisine" value="Desserts" > Desserts <br>
+</form></p>
 <button onclick="query()">Search for food!</button>
 
 	</body>
