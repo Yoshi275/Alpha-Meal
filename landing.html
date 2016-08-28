@@ -23,13 +23,16 @@
 		<body class="boxed">	
 	-->
 	<body>
-	<p>A minimalistic *cough cough* landing page</p>
-	<ul>
+	<h2>A minimalistic *cough cough* landing page</h2>
+	<ul id="todolist">
 		<em>things to do</em>
 		<li><strike>get postcode input</strike></li>
 		<li><strike>API Get</strike></li>
-		<li>Parse out the result</li>
-		<li>configure look</li>
+		<li><strike>Parse out the result</strike></li>
+		<li>like() function</li>
+		<li>format the displayed results</li>
+		<li>coat the results in tinder cards</li>
+		<li>secure the yelp authentication (perhaps ask Mr Soon about the backend stuff? Although he does front end lol)</li>
 	</ul>
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
@@ -75,6 +78,9 @@
         var info;
         var res_no;
             function query() {
+            	//clear the results
+            	$("#results").empty();
+
             	var auth = {
                 //
                 // Update with your auth tokens.
@@ -158,7 +164,12 @@ console.log(parameters)
                     console.log('data is', data);
                     info = data;
                     res_no = 0
-                    $("#results").append(info.businesses[res_no].name + " " + info.businesses[res_no].location.display_address);
+                    //
+                    //display results
+                    $("#results").append(info.businesses[res_no].name + \n + info.businesses[res_no].location.display_address);
+                    //end of results
+                    //
+                    //appending buttons
                     var button_dunlike = $('<button onclick="dunlike()">Nope, not this one!</button>');
     				button_dunlike.appendTo($("#results"));
     				var button_like = $('<button onclick="like()">Awesome I love this lets go!</button>');
@@ -174,7 +185,11 @@ console.log(parameters)
 				res_no += 1;
 				console.log("current result number",res_no);
 				$("#results").empty();
+
+				//to be replaced by standard formatting
 				$("#results").append(info.businesses[res_no].name + " " + info.businesses[res_no].location.display_address);
+
+
 				var button_dunlike = $('<button onclick="dunlike()">Nope, not this one!</button>');
     			button_dunlike.appendTo($("#results"));
     			var button_like = $('<button onclick="like()">Awesome I love this lets go!</button>');
@@ -186,88 +201,6 @@ console.log(parameters)
         </script>
 				
 
-
-	</body>
-</html>
--->
--->
-<!--
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-        <script type="text/javascript" src="js/oauth.js"></script>
-        <script type="text/javascript" src="js/sha1.js"></script>
-        <script type="text/javascript">
-            function query() {
-            	var auth = {
-                //
-                // Update with your auth tokens.
-                //
-                consumerKey : "BVqw4tz8MZxa0Xf-q9Mehw",
-                consumerSecret : "MgCMR8S6q3LVBp_c6SKFYzekGy4",
-                accessToken : "28ezyOcLm4xDIjnobx7dn-QMTVS_c-0z",
-                // This example is a proof of concept, for how to use the Yelp v2 API with javascript.
-                // You wouldn't actually want to expose your access token secret like this in a real application.
-                accessTokenSecret : "CY29gXAsiSDqJTFENUolVRihU8M",
-                serviceProvider : {
-                    signatureMethod : "HMAC-SHA1"
-                }
-            };
-
-
-
-
-            var terms = $("#cuisine").val();
-            var near = $("#postcode").val();
-
-            var accessor = {
-                consumerSecret : auth.consumerSecret,
-                tokenSecret : auth.accessTokenSecret
-            };
-            parameters = [];
-            parameters.push(['term', terms]);
-            parameters.push(['location', near]);
-            parameters.push(['callback', 'cb']);
-            parameters.push(['oauth_consumer_key', auth.consumerKey]);
-            parameters.push(['oauth_consumer_secret', auth.consumerSecret]);
-            parameters.push(['oauth_token', auth.accessToken]);
-            parameters.push(['oauth_signature_method', 'HMAC-SHA1']);
-
-console.log(parameters)
-
-            var message = {
-                'action' : 'http://api.yelp.com/v2/search',
-                'method' : 'GET',
-                'parameters' : parameters
-            };
-
-            OAuth.setTimestampAndNonce(message);
-            OAuth.SignatureMethod.sign(message, accessor);
-
-            var parameterMap = OAuth.getParameterMap(message.parameters);
-            console.log(parameterMap);
-
-            $.ajax({
-                'url' : message.action,
-                'data' : parameterMap,
-                'dataType' : 'jsonp',
-                'jsonpCallback' : 'cb',
-                'success' : function(data, textStats, XMLHttpRequest) {
-                    console.log(data);
-                    //$("body").append(output);
-                }
-            });
-            }
-
-        </script>
-<p>Postcode: <input id="postcode" type="text" name="user" value="Postcode"></p>
-<p>Food type: <select id="cuisine">
-  <option>Fast food</option>
-  <option>Western</option>
-  <option>Japanese</option>
-  <option>Korean</option>
-  <option>Singaporean</option>
-</select></p>
-
-<button onclick="query()">Search for food!</button>
 
 	</body>
 </html>
