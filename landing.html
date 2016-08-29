@@ -186,7 +186,13 @@ console.log(parameters)
                     } //make sure it is open
                     //
                     //display results
-                    $("#results").append(info.businesses[res_no].name + '<br>' + info.businesses[res_no].location.display_address + "<br>");
+                    $("#results").append(
+                    	info.businesses[res_no].name + '<br>' + info.businesses[res_no].location.display_address + "<br>" +
+                    	'<img src='+info.businesses[res_no].image_url+'>'
+
+
+                    );
+
                     //end of results
                     //
                     //appending buttons
