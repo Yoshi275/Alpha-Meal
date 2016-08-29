@@ -186,6 +186,7 @@ console.log(parameters)
                     } //make sure it is open
                     //
                     //display results
+<<<<<<< HEAD
                     $("#results").append(
                     	info.businesses[res_no].name + '<br>' + info.businesses[res_no].location.display_address + "<br>" +
                     	'<img src='+info.businesses[res_no].image_url+'>'
@@ -193,6 +194,9 @@ console.log(parameters)
 
                     );
 
+=======
+                    $("#results").append(info.businesses[res_no].name + '<br>' + info.businesses[res_no].location.display_address + "<br>" + info.businesses[res_no].rating_img_url_small);
+>>>>>>> origin/gh-pages
                     //end of results
                     //
                     //appending buttons
@@ -216,7 +220,7 @@ console.log(parameters)
 				$("#results").empty();
 
 				//to be replaced by standard formatting
-				$("#results").append(info.businesses[res_no].name + "<br>" + info.businesses[res_no].location.display_address + "<br>");
+				$("#results").append(info.businesses[res_no].name + "<br>" + info.businesses[res_no].location.display_address + "<br>") + info.businesses[res_no].rating_img_url_small + "<br";
 				var button_dunlike = $('<button onclick="dunlike()">Nope, not this one!</button>');
 				button_dunlike.appendTo($("#results"));
 				var button_like = $('<button onclick="like()">Awesome I love this lets go!</button>');
