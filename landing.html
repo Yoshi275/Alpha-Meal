@@ -45,8 +45,7 @@
 	<!-- Flexslider -->
 	<script src="js/jquery.flexslider-min.js"></script>
 
-		<p>Postcode: <input id="postcode" type="text" name="user" value="Postcode"></p>
-				<p>Any preferred shop?		 <input id="term" type="text" name="user" value="Anything!"></p>
+				<p>Postcode: <input id="postcode" type="text" name="user" value="Postcode"></p>
 
 				<p>Cuisine: <form action="demo_form.asp" method="get" id="cuisine">
 				  <input type="checkbox" name="cuisine" value="hotdog" value="burgers"> Fast food<br>
@@ -102,10 +101,8 @@
             category_filter(cuisine), id=cuisine;
             
             */
-            var term; //shop name
-            if ($("#term").val() == "Anything!") 
-            	{term = ""} 
-            else {term = $("#term").val()};
+            var term = ""; //shop name
+            
 
             var location; //postcode
             location = $("#postcode").val();
@@ -166,7 +163,7 @@ console.log(parameters)
                     res_no = 0
                     //
                     //display results
-                    $("#results").append(info.businesses[res_no].name + \n + info.businesses[res_no].location.display_address);
+                    $("#results").append(info.businesses[res_no].name + '<br>' + info.businesses[res_no].location.display_address + "<br>");
                     //end of results
                     //
                     //appending buttons
@@ -187,7 +184,7 @@ console.log(parameters)
 				$("#results").empty();
 
 				//to be replaced by standard formatting
-				$("#results").append(info.businesses[res_no].name + " " + info.businesses[res_no].location.display_address);
+				$("#results").append(info.businesses[res_no].name + "<br>" + info.businesses[res_no].location.display_address + "<br>");
 
 
 				var button_dunlike = $('<button onclick="dunlike()">Nope, not this one!</button>');
