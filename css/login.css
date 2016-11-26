@@ -1,0 +1,69 @@
+/* Bordered form */
+.container {
+    border: 3px solid #f1f1f1;
+    margin: auto;
+    width: 30%;
+}
+
+/* Half-size inputs */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px auto;
+    display: block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 25px;
+    text-align: center;
+
+}
+
+/* Set a style for all buttons */
+.submitButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    display: block;
+    margin: 8px auto;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 25px;
+    border: none;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+    width: 10%;
+}
+
+/* Add padding to containers */
+.container {
+    padding: 16px;
+}
+
+/* The "Forgot password" text */
+span.psw {
+    float: right;
+    font-family: Arial;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+
+/* Inserts and aligns background image */
+//UNDONE
+
+body {
+  background-image: url("images/login-background.jpg");
+  background-color: #cccccc;
+}
