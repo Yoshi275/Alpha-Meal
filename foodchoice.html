@@ -5,6 +5,7 @@
     <title>Alpha Meal</title>
     <link rel="stylesheet" type="text/css" href="css/foodchoice.css">
     <script type="text/javascript" src="js/foodchoice.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -14,43 +15,46 @@
         <h2 class="usernameTop">insertname99</h2>
     </div>
     <form>
-    <div class="main">
-        <h1 class="location">Location: 15 Jalan Chegar, Singapore 570291</h1>
-        <h2 class="question">Hi, insertname99! What do you want to eat today?</h2>
+        <div class="main">
+            <h1 class="setup">Location: 15 Jalan Chegar, Singapore 570291</h1>
+            <h2 class="setup">Hi, <span style="color: #4bc970">insertname99!</span> What do you want to eat today?</h2>
+            <fieldset>
+                <div class="squaredThree">
+                    <input type="checkbox" value="None" id="barbeque-cbox" name="barbeque-cbox" checked />
+                    <label for="barbeque-cbox"></label>
+                    <span class="cboxtext">Barbeque</span>
+                </div>
 
-        <!--CHECKBOX MESS STARTS HERE-->
-        <ul style="list-style:none">
-            <li>
-                <div class="barbeque">
-                    <input type="checkbox" id="barbeque-cbox" name="barbeque-cbox" />
-                    <label for="barbeque-cbox"><h3>Barbeque</h3></label>
+                <div class="squaredThree">
+                    <input type="checkbox" value="None" id="chinese-cbox" name="chinese-cbox" checked />
+                    <label for="chinese-cbox"></label>
+                    <span class="cboxtext">Chinese</span>
                 </div>
-            </li>
-            <li>
-                <div class="barbeque">
-                    <input type="checkbox" id="chinese-cbox" name="chinese-cbox" />
-                    <label for="chinese-cbox"><h3>Chinese</h3></label>
+
+                <div class="squaredThree">
+                    <input type="checkbox" value="None" id="japanese-cbox" name="japanese-cbox" checked />
+                    <label for="japanese-cbox"></label>
+                    <span class="cboxtext">Japanese</span>
                 </div>
-            </li>
-            <li>
-                <div class="barbeque">
-                    <input type="checkbox" id="japanese-cbox" name="japanese-cbox" />
-                    <label for="japanese-cbox" id="japanese-label"><h3>Japanese</h3></label>
-            </li>
-            <li>
-                <div class="barbeque">
-                    <input type="checkbox" id="korean-cbox" name="korean-cbox" />
-                    <label for="korean-cbox"><h3>Korean</h3></label>
-            </li>
-            <li>
-                <div class="barbeque">
-                    <input type="checkbox" id="western-cbox" name="western-cbox" />
-                    <label for="western-cbox"><h3>Western</h3></label>
-            </li>
-        </ul>
-        <!--CHECKBOX MESS ENDS HERE-->
+
+                <div class="squaredThree">
+                    <input type="checkbox" value="None" id="korean-cbox" name="korean-cbox" checked />
+                    <label for="korean-cbox"></label>
+                    <span class="cboxtext">Korean</span>
+                </div>
+
+                <div class="squaredThree">
+                    <input type="checkbox" value="None" id="western-cbox" name="western-cbox" checked />
+                    <label for="western-cbox"></label>
+                    <span class="cboxtext">Western</span>
+                </div>
+
+            </fieldset>
         </div>
-        </form>
+        <a href="preferences.html">
+          <input type="button" class="continue" id="C1" value="Continue" onClick="showLayer('page2')">
+        </a>
+    </form>
 </body>
 
 </html>
