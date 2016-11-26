@@ -31,22 +31,22 @@
                 </legend>
 
                 <div class="amount-labels">
-                    <input type="radio" id="very-cheap-price" name="amount" />
+                    <input type="radio" id="very-cheap-price" name="amount" value="$"/>
                     <label for="very-cheap-price" class="light">$</label>
                 </div>
 
                 <div class="amount-labels">
-                    <input type="radio" id="cheap-pricing" name="amount" />
+                    <input type="radio" id="cheap-pricing" name="amount" value="$$"/>
                     <label for="cheap-price" class="light">$$</label>
                 </div>
 
                 <div class="amount-labels">
-                    <input type="radio" id="standard-price" name="amount" />
+                    <input type="radio" id="standard-price" name="amount" value="$$$"/>
                     <label for="standard-price" class="light">$$$</label>
                 </div>
 
                 <div class="amount-labels">
-                    <input type="radio" id="expensive-price" name="amount" />
+                    <input type="radio" id="expensive-price" name="amount" value="$$$$"/>
                     <label for="expensive-price" name="amount" class="light">$$$$</label>
                 </div>
 
@@ -71,12 +71,12 @@
 
                     <p>
                         <label for="free-wifi-switch" class="light">Free WiFi:</label>
-                        <input type="checkbox" class="js-switch" id="free-wifi-switch" checked/>
+                        <input type="checkbox" class="js-switch" id="free-wifi-switch" value="free-wifi-checked" checked/>
                     </p>
 
                     <p>
                         <label for="pokestops-nearby-switch" class="light">Pokéstops Nearby: </label>
-                        <input type="checkbox" class="js-switch" id="pokestops-nearby-switch" />
+                        <input type="checkbox" class="js-switch" id="pokestops-nearby-switch" value="pokestops-checked"/>
                     </p>
 
                     <p>
@@ -99,7 +99,7 @@
                     <input type="button" id="B1" value="Go Back">
                   </a>
                   <a href="demo1.html">
-                    <input type="button" id="C2" value="Continue">
+                    <button type="submit" id="C2">Continue</button>
                   </a>
                 </p>
 
