@@ -17,11 +17,11 @@
 	</head>
 
 
-	<!-- 
+	<!--
 		INFO:
 		Add 'boxed' class to body element to make the layout as boxed style.
-		Example: 
-		<body class="boxed">	
+		Example:
+		<body class="boxed">
 	-->
 	<body>
 	<h2>A minimalistic *cough cough* landing page</h2>
@@ -78,13 +78,13 @@
 			    </div>
 			    <div class="buddy">
 			    	<div class="avatar" style="display: block; background-image: url(http://static.stylemagazin.hu/medias/29280/Nem-ehezik-a-Women-of-the-Year-legjobb-modell-dijara-eselyes-szepseg_32fc7c86954a8847610499a0fc7261e2.jpg)"></div>
-			    </div>  
+			    </div>
 			    <div class="buddy">
 			    	<div class="avatar" style="display: block; background-image: url(http://w1nd.cc/promo/347.jpg)"></div>
-			    </div>  
+			    </div>
 			    <div class="buddy">
 			    	<div class="avatar" style="display: block; background-image: url(http://static.168ora.hu/db/09/AF/orban-d0001C9AFa1ba9618c180.jpg)"></div>
-			    </div>  
+			    </div>
 			  </div>
 			  --><!-- this is from the tinder cards-->
 
@@ -119,17 +119,17 @@
             /* Checklist: term(shop name) id=term;
             location(location) id=postcode;
             category_filter(cuisine), id=cuisine;
-            
+
             */
             var term = ""; //shop name
-            
+
 
             var location; //postcode
             location = $("#postcode").val();
             console.log("location",location);
 
             var cuisine = "";//category filter
-            $.each($("input[name='cuisine']:checked"), function(){            
+            $.each($("input[name='cuisine']:checked"), function(){
 
                 cuisine += $(this).val();
                 cuisine += ","
@@ -227,7 +227,7 @@ console.log(parameters)
 				var button_like = $('<button onclick="like()">Awesome I love this lets go!</button>');
 				button_like.appendTo($("#results"));
 
-				
+
 			};//end of dunlike
 			function like() {
 
@@ -239,13 +239,13 @@ console.log(parameters)
 			      $(this).addClass('rotate-left').delay(700).fadeOut(1);
 			      $('.buddy').find('.status').remove();
 
-			      $(this).append('<div class="status like">Like!</div>');      
+			      $(this).append('<div class="status like">Like!</div>');
 			      if ( $(this).is(':last-child') ) {
 			        $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
 			       } else {
 			          $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
 			       }
-			    });  
+			    });
 
 			   $(".buddy").on("swipeleft",function(){
 			    $(this).addClass('rotate-right').delay(700).fadeOut(1);
@@ -257,15 +257,15 @@ console.log(parameters)
 			      alert('Na-na!');
 			     } else {
 			        $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
-			    } 
+			    }
 			  });
 
-			});*/ 
-			//this is tinder cards for further use. 
+			});*/
+			//this is tinder cards for further use.
 			//Requres jquery mobile library but when loaded the js screws the rest of the text formatting.
 			//so the plan is to use it when I have time lol
         </script>
-				
+
 
 
 	</body>
