@@ -8,6 +8,37 @@
     <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/switchery.css" />
     <script src="js/switchery.js"></script>
+<!-- 2-PAGED FORM SCRIPT (currently not working)
+    <script language = "JavaScript" >
+        var currentLayer = 'page1';
+
+    function showLayer(lyr) {
+        hideLayer(currentLayer);
+        document.getElementById(lyr).style.visibility = 'visible';
+        currentLayer = lyr;
+    }
+
+    function hideLayer(lyr) {
+        document.getElementById(lyr).style.visibility = 'hidden';
+    }
+
+    function showValues(form) {
+        var values = '';
+        var len = form.length - 1;
+        //Leave off Submit Button
+        for (i = 0; i < len; i++) {
+            if (form[i].id.indexOf("C") != -1 || form[i].id.indexOf("B") != -1)
+            //Skip Continue and Back Buttons
+                continue;
+            values += form[i].id;
+            values += ': ';
+            values += form[i].value;
+            values += '\n';
+        }
+        alert(values);
+    } </script>
+  -->
+
 </head>
 
 <body>
@@ -18,8 +49,55 @@
     </div>
 
     <form action="info.html" method="get">
+        <div id="page1" class="page">
 
-    <div id="page2" class="page">
+            <div class="main">
+                <h1 class="setup">Location: 15 Jalan Chegar, Singapore 570291</h1>
+                <h2 class="setup">Hi, <span style="color: #4bc970">insertname99!</span> What do you want to eat today?</h2>
+                <fieldset>
+                    <div class="squaredThree">
+                        <input type="checkbox" value="None" id="barbeque-cbox" name="barbeque-cbox" checked />
+                        <label for="barbeque-cbox"></label>
+                        <span class="cboxtext">Barbeque</span>
+                    </div>
+
+                    <div class="squaredThree">
+                        <input type="checkbox" value="None" id="chinese-cbox" name="chinese-cbox" checked />
+                        <label for="chinese-cbox"></label>
+                        <span class="cboxtext">Chinese</span>
+                    </div>
+
+                    <div class="squaredThree">
+                        <input type="checkbox" value="None" id="japanese-cbox" name="japanese-cbox" checked />
+                        <label for="japanese-cbox"></label>
+                        <span class="cboxtext">Japanese</span>
+                    </div>
+
+                    <div class="squaredThree">
+                        <input type="checkbox" value="None" id="korean-cbox" name="korean-cbox" checked />
+                        <label for="korean-cbox"></label>
+                        <span class="cboxtext">Korean</span>
+                    </div>
+
+                    <div class="squaredThree">
+                        <input type="checkbox" value="None" id="western-cbox" name="western-cbox" checked />
+                        <label for="western-cbox"></label>
+                        <span class="cboxtext">Western</span>
+                    </div>
+
+                </fieldset>
+            </div>
+            <a href="preferences.html">
+                <input type="button" class="continue" id="C1" value="Continue" onClick="showLayer('page2')">
+            </a>
+        </div>
+
+        <!--
+--------------------------------------------------------------------------------
+-->
+
+
+        <div id="page2" class="page">
 
 
             <h1>Preferences</h1>
@@ -31,22 +109,22 @@
                 </legend>
 
                 <div class="amount-labels">
-                    <input type="radio" id="very-cheap-price" name="amount" value="$"/>
+                    <input type="radio" id="very-cheap-price" name="amount" value="$" />
                     <label for="very-cheap-price" class="light">$</label>
                 </div>
 
                 <div class="amount-labels">
-                    <input type="radio" id="cheap-pricing" name="amount" value="$$"/>
+                    <input type="radio" id="cheap-pricing" name="amount" value="$$" />
                     <label for="cheap-price" class="light">$$</label>
                 </div>
 
                 <div class="amount-labels">
-                    <input type="radio" id="standard-price" name="amount" value="$$$"/>
+                    <input type="radio" id="standard-price" name="amount" value="$$$" />
                     <label for="standard-price" class="light">$$$</label>
                 </div>
 
                 <div class="amount-labels">
-                    <input type="radio" id="expensive-price" name="amount" value="$$$$"/>
+                    <input type="radio" id="expensive-price" name="amount" value="$$$$" />
                     <label for="expensive-price" name="amount" class="light">$$$$</label>
                 </div>
 
@@ -76,7 +154,7 @@
 
                     <p>
                         <label for="pokestops-nearby-switch" class="light">Pokéstops Nearby: </label>
-                        <input type="checkbox" class="js-switch" id="pokestops-nearby-switch" value="pokestops-checked"/>
+                        <input type="checkbox" class="js-switch" id="pokestops-nearby-switch" value="pokestops-checked" />
                     </p>
 
                     <p>
@@ -95,17 +173,17 @@
                     </script>
                 </fieldset>
                 <p>
-                  <a href="foodchoice.html">
-                    <input type="button" id="B1" value="Go Back">
-                  </a>
-                  <a href="demo1.html">
-                    <button type="submit" id="C2">Continue</button>
-                  </a>
+                    <a href="foodchoice.html">
+                        <input type="button" id="B1" value="Go Back" onClick="showLayer('page1')">
+                    </a>
+                    <a href="demo1.html">
+                        <button type="submit" id="submitbutton">Continue</button>
+                    </a>
                 </p>
 
 
             </div>
-    </div>
+        </div>
     </form>
 </body>
 
