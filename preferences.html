@@ -56,31 +56,31 @@
                 <h2 class="setup">Hi, <span style="color: #4bc970">insertname99!</span> What do you want to eat today?</h2>
                 <fieldset>
                     <div class="squaredThree">
-                        <input type="checkbox" value="bbq" id="barbeque-cbox" name="barbeque-cbox" checked />
+                        <input type="checkbox" value="bbq" id="barbeque-cbox" name="cuisine" checked />
                         <label for="barbeque-cbox"></label>
                         <span class="cboxtext">Barbeque</span>
                     </div>
 
                     <div class="squaredThree">
-                        <input type="checkbox" value="None" id="chinese-cbox" name="chinese-cbox" checked />
+                        <input type="checkbox" value="None" id="chinese-cbox" name="cuisine" checked />
                         <label for="chinese-cbox"></label>
                         <span class="cboxtext">Chinese</span>
                     </div>
 
                     <div class="squaredThree">
-                        <input type="checkbox" value="None" id="japanese-cbox" name="japanese-cbox" checked />
+                        <input type="checkbox" value="None" id="japanese-cbox" name="cuisine" checked />
                         <label for="japanese-cbox"></label>
                         <span class="cboxtext">Japanese</span>
                     </div>
 
                     <div class="squaredThree">
-                        <input type="checkbox" value="None" id="korean-cbox" name="korean-cbox" checked />
+                        <input type="checkbox" value="None" id="korean-cbox" name="cuisine" checked />
                         <label for="korean-cbox"></label>
                         <span class="cboxtext">Korean</span>
                     </div>
 
                     <div class="squaredThree">
-                        <input type="checkbox" value="None" id="western-cbox" name="western-cbox" checked />
+                        <input type="checkbox" value="None" id="western-cbox" name="cuisine" checked />
                         <label for="western-cbox"></label>
                         <span class="cboxtext">Western</span>
                     </div>
@@ -133,6 +133,7 @@
                     <span class="number">2</span>Distance:
                 </legend>
                 <p class="light">
+                	0 km
                     <input type="range" name="distanceInputName" id="distanceInputId" value="0.5" min="0.1" max="40.0" onchange="distanceOutputId.value = distanceInputId.value">
                     <output name="distanceOutputName" id="distanceOutputId">0.5</output> km</p>
             </fieldset>
