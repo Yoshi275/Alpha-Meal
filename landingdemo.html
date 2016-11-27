@@ -13,7 +13,10 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 	<link rel="stylesheet" href="css/landing.css">
-
+  <!-- For homepage-->
+  <script src="js/demo1.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/demo1.css" />
+  <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
 	</head>
 
 
@@ -24,7 +27,7 @@
 		<body class="boxed">
 	-->
 	<body>
-	<h2>A minimalistic *cough cough* landing page</h2>
+	<h2>Loading...</h2>
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -35,32 +38,40 @@
 	<script src="js/jquery.waypoints.min.js"></script>
 	<!-- Flexslider -->
 	<script src="js/jquery.flexslider-min.js"></script>
+  <!-- Get Form Data -->
+  <script type="text/javascript">
+  function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        if(vars[key]){
+        if(vars[key] instanceof Array){
+          vars[key].push(value);
+        }else{
+          vars[key] = [vars[key], value];
+        }
+        }else{
+          vars[key] = value;
+        }
+        });
+    return vars;
+    }
 
-				<p>Postcode: <input id="postcode" type="text" name="user" value="Postcode"></p>
+  var distance = getUrlVars()["distance"];
+  var distance = distance * 1000;
+  var cuisine = getUrlVars()["cuisine"];
+  var cuisine = cuisine.join();
+  var location1 = getUrlVars()["location"];
 
-				<p>Cuisine: <form action="demo_form.asp" method="get" id="cuisine">
-				  <input type="checkbox" name="cuisine" value="hotdog" value="burgers"> Fast food<br>
-				  <input type="checkbox" name="cuisine" value="tradamerican" > Western <br>
-				  <input type="checkbox" name="cuisine" value="japanese"> Japanese <br>
-				  <input type="checkbox" name="cuisine" value="korean" > Korean <br>
-				  <input type="checkbox" name="cuisine" value="singaporean"> Singaporean <br>
-				  <input type="checkbox" name="cuisine" value="mexican" > Mexican <br>
-				  <input type="checkbox" name="cuisine" value="breakfast_brunch" > Brunch <br>
-				  <input type="checkbox" name="cuisine" value="desserts" > Desserts <br>
-				</form></p>
+    console.log(distance);
+    console.log(cuisine);
+    console.log(location);
 
-				<p>How far away?</p>
-				<form action="" id="distance">
-				  <input type="radio" name="distance" value=1000> 1km<br>
-				  <input type="radio" name="distance" value=5000> 5km<br>
-				  <input type="radio" name="distance" value=10000> 10km<br>
-				  <input type="radio" name="distance" value=40000> Infinity
-				</form>
-				<button onclick="query()">Search for food!</button>
+  </script>
+
+
+				<button id = "searchbutton" onclick="query()">Search for food!</button>
 
 				<div id="results"></div>
-
-
 
 			  <!--<div id="container">
 			    <div class="buddy" style="display: block;">
@@ -113,24 +124,10 @@
             */
             var term = ""; //shop name
 
+            console.log(location1);
+            console.log(distance); //logs distance
+            console.log(cuisine);
 
-            var location; //postcode
-            location = $("#postcode").val();
-            console.log("location",location);
-
-            var cuisine = "";//category filter
-            $.each($("input[name='cuisine']:checked"), function(){
-
-                cuisine += $(this).val();
-                cuisine += ","
-				if ($(this).val() == "japanese") {cuisine += "sushi,"};
-				if ($(this).val() == "tradamerican") {cuisine += "bbq,british,french,german,"}
-				if ($(this).val() == "hotdog") {cuisine += "burgers,"};
-            });
-            cuisine = cuisine.substring(0,(cuisine.length-1))
-            console.log("cuisine:",cuisine);
-
- 			var distance = parseInt($("input[name=distance]:checked").val());
 
             var accessor = {
                 consumerSecret : auth.consumerSecret,
@@ -138,7 +135,7 @@
             };
             parameters = [];
             parameters.push(['term', term]);
-            parameters.push(['location', location]);
+            parameters.push(['location', location1]);
             parameters.push(['category_filter', cuisine]);
             parameters.push(['radius_filter', distance]);
             parameters.push(['callback', 'cb']);
@@ -176,11 +173,29 @@ console.log(parameters)
                     } //make sure it is open
                     //
                     //display results
+
                     $("#results").append(
                     	info.businesses[res_no].name + '<br>' + info.businesses[res_no].location.display_address + "<br>" +
+                      info.businesses[res_no].location.postal_code + '<br>'+
                     	'<img src='+info.businesses[res_no].image_url+'>'+ '<br>' +
                     	'<img src='+info.businesses[res_no].rating_img_url+'>'+'<br>');
                     $("#results").append(info.businesses[res_no].name + "\n" + info.businesses[res_no].location.display_address);
+                    var restaurantName = info.businesses[res_no].name;
+                    document.querySelector('.results').innerHTML = restaurantName;
+                    console.log(restaurantName);
+                    var restaurantLocation = info.businesses[res_no].location.display_address;
+                    console.log(restaurantLocation);
+                    var restaurantCuisine = info.businesses[res_no].categories;
+                    console.log(restaurantCuisine);
+                    var restaurantPhone = info.businesses[res_no].display_phone;
+                    console.log(restaurantPhone);
+                    var restaurantRatingsImage = info.businesses[res_no].rating_img_url;
+                    console.log("Ratings Ready");
+                    var restaurantReservation = info.businesses[res_no].reservation_url;
+                    console.log("Reservation Ready");
+                    var restaurantImage = info.businesses[res_no].img_url;
+                    console.log("Image Ready");
+
                     //end of results
                     //
                     //appending buttons
@@ -252,7 +267,51 @@ console.log(parameters)
 			//Requres jquery mobile library but when loaded the js screws the rest of the text formatting.
 			//so the plan is to use it when I have time lol
         </script>
+        <div class="demo1">
+        <div class="header"> <!--PROFILE+TITLE-->
+            <h2 class="titleTop">Alpha Meal</h2>
+            <img class="profile-icon" src="images/icon.png" alt="Profile Icon">
+            <h2 class="usernameTop">insertname99</h2>
+        </div>
 
+        <div class="titlethumbs"> <!--RESTAURANT NAME+THUMBS-->
+            <div>
+              <img src="images/thumbsdown.png" alt="Downvote" class="thumbsdown"/>
+            </div>
+            <div>
+              <h1>The Sushi Bar</h1>
+            </div>
+            <div>
+              <img src="images/thumbsup.png" alt="Upvote" class="thumbsup"/>
+            </div>
+        </div>
+        <div class="restaurant"> <!--TWO-PANEL RESTAURANT INFO DISPLAY-->
+        <div class="restaurantinformation">
+
+        <div>
+            <h2 id="restaurantlocation">Location: 14 Scotts Road, #04-28, Far East Plaza, Singapore 228213</h2>
+            <h2 id="restaurantcuisine">Cuisine: Sushi, Japanese Restaurants</h2>
+            <h2 id="restaurantprice">Price: $$</h2>
+        </div>
+        </div>
+
+        <div class="restaurantfeatures">
+            <div>
+              <h2 id="restaurantdistance">400m away. <a href="directions.html">Get me there!</a></h2>
+              <h2 id="makeareservation"><a href="reservation.html">Make a reservation</a></h2>
+              <h2 id="addrestauranttolist"><a href="addtolist.html">Add to list</a></h2>
+            </div>
+        </div>
+        </div>
+        </div>
+
+        <div class="restaurantimages"> <!--ROW OF IMAGES AT BOTTOM-->
+          <img class="images" id="image1" src="images/demo1pic1.jpg" alt="picture1.jpg" />
+          <img class="images" id="image2" src="images/demo1pic2.jpg" alt="picture2.jpg" />
+          <img class="images" id="image3" src="images/demo1pic3.jpg" alt="picture3.jpg" />
+          <span class="stretch"></span>
+        </div>
+        </div>
 
 
 	</body>
