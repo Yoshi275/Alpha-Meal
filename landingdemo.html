@@ -173,15 +173,7 @@ console.log(parameters)
                     } //make sure it is open
                     //
                     //display results
-
-                    $("#results").append(
-                    	info.businesses[res_no].name + '<br>' + info.businesses[res_no].location.display_address + "<br>" +
-                      info.businesses[res_no].location.postal_code + '<br>'+
-                    	'<img src='+info.businesses[res_no].image_url+'>'+ '<br>' +
-                    	'<img src='+info.businesses[res_no].rating_img_url+'>'+'<br>');
-                    $("#results").append(info.businesses[res_no].name + "\n" + info.businesses[res_no].location.display_address);
                     var restaurantName = info.businesses[res_no].name;
-                    document.querySelector('.results').innerHTML = restaurantName;
                     console.log(restaurantName);
                     var restaurantLocation = info.businesses[res_no].location.display_address;
                     console.log(restaurantLocation);
@@ -196,6 +188,14 @@ console.log(parameters)
                     var restaurantImage = info.businesses[res_no].img_url;
                     console.log("Image Ready");
 
+                    $("#results").append(
+                    	info.businesses[res_no].name + '<br>' + info.businesses[res_no].location.display_address + "<br>" +
+                      info.businesses[res_no].location.postal_code + '<br>'+
+                    	'<img src='+info.businesses[res_no].image_url+'>'+ '<br>' +
+                    	'<img src='+info.businesses[res_no].rating_img_url+'>'+'<br>');
+                    $("#results").append(info.businesses[res_no].name + "\n" + info.businesses[res_no].location.display_address);
+
+
                     //end of results
                     //
                     //appending buttons
@@ -204,11 +204,12 @@ console.log(parameters)
     				var button_like = $('<button onclick="like()">Awesome I love this lets go!</button>');
     				button_like.appendTo($("#results"));
     				console.log('ajax done')
+
+
+
                 }
             });
             }//end of query()
-			//document.getElementById("results").innerHTML =
-			//data.business[0].name + " " + data.business[0].location.display_address;
 			function dunlike() {
 				console.log("dunlike");
 				res_no += 1;
@@ -224,10 +225,10 @@ console.log(parameters)
                     	'<img src='+info.businesses[res_no].image_url+'>'+ '<br>' +
                     	'<img src='+info.businesses[res_no].rating_img_url+'>'+'<br>');
 				//end of results
-				var button_dunlike = $('<button onclick="dunlike()">Nope, not this one!</button>');
-				button_dunlike.appendTo($("#results"));
-				var button_like = $('<button onclick="like()">Awesome I love this lets go!</button>');
-				button_like.appendTo($("#results"));
+			var button_dunlike = $('<button onclick="dunlike()">Nope, not this one!</button>');
+			button_dunlike.appendTo($("#results"));
+			var button_like = $('<button onclick="like()">Awesome I love this lets go!</button>');
+			button_like.appendTo($("#results"));
 
 
 			};//end of dunlike
@@ -267,51 +268,6 @@ console.log(parameters)
 			//Requres jquery mobile library but when loaded the js screws the rest of the text formatting.
 			//so the plan is to use it when I have time lol
         </script>
-        <div class="demo1">
-        <div class="header"> <!--PROFILE+TITLE-->
-            <h2 class="titleTop">Alpha Meal</h2>
-            <img class="profile-icon" src="images/icon.png" alt="Profile Icon">
-            <h2 class="usernameTop">insertname99</h2>
-        </div>
-
-        <div class="titlethumbs"> <!--RESTAURANT NAME+THUMBS-->
-            <div>
-              <img src="images/thumbsdown.png" alt="Downvote" class="thumbsdown"/>
-            </div>
-            <div>
-              <h1>The Sushi Bar</h1>
-            </div>
-            <div>
-              <img src="images/thumbsup.png" alt="Upvote" class="thumbsup"/>
-            </div>
-        </div>
-        <div class="restaurant"> <!--TWO-PANEL RESTAURANT INFO DISPLAY-->
-        <div class="restaurantinformation">
-
-        <div>
-            <h2 id="restaurantlocation">Location: 14 Scotts Road, #04-28, Far East Plaza, Singapore 228213</h2>
-            <h2 id="restaurantcuisine">Cuisine: Sushi, Japanese Restaurants</h2>
-            <h2 id="restaurantprice">Price: $$</h2>
-        </div>
-        </div>
-
-        <div class="restaurantfeatures">
-            <div>
-              <h2 id="restaurantdistance">400m away. <a href="directions.html">Get me there!</a></h2>
-              <h2 id="makeareservation"><a href="reservation.html">Make a reservation</a></h2>
-              <h2 id="addrestauranttolist"><a href="addtolist.html">Add to list</a></h2>
-            </div>
-        </div>
-        </div>
-        </div>
-
-        <div class="restaurantimages"> <!--ROW OF IMAGES AT BOTTOM-->
-          <img class="images" id="image1" src="images/demo1pic1.jpg" alt="picture1.jpg" />
-          <img class="images" id="image2" src="images/demo1pic2.jpg" alt="picture2.jpg" />
-          <img class="images" id="image3" src="images/demo1pic3.jpg" alt="picture3.jpg" />
-          <span class="stretch"></span>
-        </div>
-        </div>
 
 
 	</body>
