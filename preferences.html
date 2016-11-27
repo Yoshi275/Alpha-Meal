@@ -48,54 +48,52 @@
         <h2 class="usernameTop">insertname99</h2>
     </div>
 
-    <form action="info.html" method="get">
+    <form id="myForm" action="landingdemo.html" method="get">
         <div id="page1" class="page">
 
             <div class="main">
                 <h1 class="setup">Location: 15 Jalan Chegar, Singapore 570291</h1>
+                <h3>Not your location? Type postal here:</h3> <!--LOCATION-->
+                <input type="text" name="location" value="" placeholder="575954"/>
                 <h2 class="setup">Hi, <span style="color: #4bc970">insertname99!</span> What do you want to eat today?</h2>
                 <fieldset>
                     <div class="squaredThree">
-                        <input type="checkbox" value="None" id="barbeque-cbox" name="barbeque-cbox" checked />
-                        <label for="barbeque-cbox"></label>
-                        <span class="cboxtext">Barbeque</span>
+                        <input type="checkbox" value="breakfast_brunch" id="brunch-cbox" name="cuisine" checked />
+                        <label for="brunch-cbox"></label>
+                        <span class="cboxtext">Brunch</span>
                     </div>
 
                     <div class="squaredThree">
-                        <input type="checkbox" value="None" id="chinese-cbox" name="chinese-cbox" checked />
-                        <label for="chinese-cbox"></label>
-                        <span class="cboxtext">Chinese</span>
+                        <input type="checkbox" value="mexican" id="mexican-cbox" name="cuisine" checked />
+                        <label for="mexican-cbox"></label>
+                        <span class="cboxtext">Mexican</span>
                     </div>
 
                     <div class="squaredThree">
-                        <input type="checkbox" value="None" id="japanese-cbox" name="japanese-cbox" checked />
+                        <input type="checkbox" value="sushi" id="japanese-cbox" name="cuisine" checked />
                         <label for="japanese-cbox"></label>
                         <span class="cboxtext">Japanese</span>
                     </div>
 
                     <div class="squaredThree">
-                        <input type="checkbox" value="None" id="korean-cbox" name="korean-cbox" checked />
+                        <input type="checkbox" value="korean" id="korean-cbox" name="cuisine" checked />
                         <label for="korean-cbox"></label>
                         <span class="cboxtext">Korean</span>
                     </div>
 
                     <div class="squaredThree">
-                        <input type="checkbox" value="None" id="western-cbox" name="western-cbox" checked />
+                        <input type="checkbox" value="tradamerican" id="western-cbox" name="cuisine" checked />
                         <label for="western-cbox"></label>
                         <span class="cboxtext">Western</span>
                     </div>
-
                 </fieldset>
             </div>
+            <!--
             <a href="preferences.html">
                 <input type="button" class="continue" id="C1" value="Continue" onClick="showLayer('page2')">
             </a>
+            //remove useless button-->
         </div>
-
-        <!--
---------------------------------------------------------------------------------
--->
-
 
         <div id="page2" class="page">
 
@@ -137,7 +135,8 @@
                     <span class="number">2</span>Distance:
                 </legend>
                 <p class="light">
-                    <input type="range" name="distanceInputName" id="distanceInputId" value="0.5" min="0.1" max="40.0" onchange="distanceOutputId.value = distanceInputId.value">
+
+                    <input type="range" name="distance" id="distanceInputId" value="0.5" min="0.1" max="40.0" onchange="distanceOutputId.value = distanceInputId.value">
                     <output name="distanceOutputName" id="distanceOutputId">0.5</output> km</p>
             </fieldset>
             <div class="features">
@@ -170,15 +169,19 @@
                         elems.forEach(function(html) {
                             var switchery = new Switchery(html);
                         });
+
                     </script>
                 </fieldset>
                 <p>
                     <a href="foodchoice.html">
                         <input type="button" id="B1" value="Go Back" onClick="showLayer('page1')">
                     </a>
+                    <!--
                     <a href="demo1.html">
                         <button type="submit" id="submitbutton">Continue</button>
                     </a>
+                    -->
+                    <button type="submit" id="submitbutton">Continue</button>
                 </p>
 
 
@@ -191,8 +194,7 @@
 
 
 <!--ISSUES
-1. Second price button cannot be clicked
-2. 'Next' button to be added
-3. To be linked with first form page
+1. Price button currently unsupported in V2 so upgrade maybe?
+2. Features still unsupported
 
 -->
