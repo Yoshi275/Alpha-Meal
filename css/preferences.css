@@ -30,12 +30,6 @@ body {
   margin: 0px;
 }
 
-*, *:before, *:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
 /* format form and font*/
 body {
   font-family: 'Nunito', sans-serif;
@@ -273,3 +267,116 @@ input[type="radio"]:checked+label{
   border: 2px solid black;
   border-radius: 10%;
 }
+
+#B1{
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  background-color: #4bc970;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 25%;
+  border: 1px solid #3ac162;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+}
+
+#submitbutton{
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  background-color: #4bc970;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 25%;
+  border: 1px solid #3ac162;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+}
+
+/* START OF CHECKBOXMESS
+-------------------------------------------------------------------------------
+*/
+.squaredThree {
+  width: 20px;
+  position: relative;
+  margin: 25px;
+}
+.squaredThree label {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(top, #222222 0%, #45484d 100%);
+  background: linear-gradient(to bottom, #222222 0%, #45484d 100%);
+  border-radius: 4px;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.4);
+}
+.squaredThree label:after {
+  content: '';
+  width: 9px;
+  height: 5px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border: 3px solid #fcfff4;
+  border-top: none;
+  border-right: none;
+  background: transparent;
+  opacity: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.squaredThree label:hover::after {
+  opacity: 0.3;
+}
+.squaredThree input[type=checkbox] {
+  visibility: hidden;
+}
+.squaredThree input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}
+
+/* END OF CHECKBOXMESS
+-------------------------------------------------------------------------------
+*/
+
+/* To space label of checkbox */
+.cboxtext {
+  margin-left: 10px;
+}
+
+/*Colour and align 'Continue' button*/
+#C1 {
+  padding: 19px 39px 19px 39px;
+  color: #FFF;
+  background-color: #4bc970;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 40%;
+  border: 1px solid #3ac162;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+  margin-left: 40px;
+}
+
+.setup {
+  margin-left: 20px;
+}
+
+/* Hides Pages for 2-pages. Currently not working
+.page{
+   position: absolute;
+   top: 10;
+   left: 100;
+   visibility: visible;
+} */

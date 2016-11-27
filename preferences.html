@@ -8,6 +8,37 @@
     <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/switchery.css" />
     <script src="js/switchery.js"></script>
+<!-- 2-PAGED FORM SCRIPT (currently not working)
+    <script language = "JavaScript" >
+        var currentLayer = 'page1';
+
+    function showLayer(lyr) {
+        hideLayer(currentLayer);
+        document.getElementById(lyr).style.visibility = 'visible';
+        currentLayer = lyr;
+    }
+
+    function hideLayer(lyr) {
+        document.getElementById(lyr).style.visibility = 'hidden';
+    }
+
+    function showValues(form) {
+        var values = '';
+        var len = form.length - 1;
+        //Leave off Submit Button
+        for (i = 0; i < len; i++) {
+            if (form[i].id.indexOf("C") != -1 || form[i].id.indexOf("B") != -1)
+            //Skip Continue and Back Buttons
+                continue;
+            values += form[i].id;
+            values += ': ';
+            values += form[i].value;
+            values += '\n';
+        }
+        alert(values);
+    } </script>
+  -->
+
 </head>
 
 <body>
@@ -17,9 +48,59 @@
         <h2 class="usernameTop">insertname99</h2>
     </div>
 
-    <form action="info.html" method="get">
+    <form id="myForm" action="landingdemo.html" method="get">
+        <div id="page1" class="page">
 
-    <div id="page2" class="page">
+            <div class="main">
+                <h1 class="setup">Location: 15 Jalan Chegar, Singapore 570291</h1>
+                <h2 class="setup">Hi, <span style="color: #4bc970">insertname99!</span> What do you want to eat today?</h2>
+                <fieldset>
+                    <div class="squaredThree">
+                        <input type="checkbox" value="bbq" id="barbeque-cbox" name="cuisine" checked />
+                        <label for="barbeque-cbox"></label>
+                        <span class="cboxtext">Barbeque</span>
+                    </div>
+
+                    <div class="squaredThree">
+                        <input type="checkbox" value="chinese" id="chinese-cbox" name="cuisine" checked />
+                        <label for="chinese-cbox"></label>
+                        <span class="cboxtext">Chinese</span>
+                    </div>
+
+                    <div class="squaredThree">
+                        <input type="checkbox" value="japanese" id="japanese-cbox" name="cuisine" checked />
+                        <label for="japanese-cbox"></label>
+                        <span class="cboxtext">Japanese</span>
+                    </div>
+
+                    <div class="squaredThree">
+                        <input type="checkbox" value="korean" id="korean-cbox" name="cuisine" checked />
+                        <label for="korean-cbox"></label>
+                        <span class="cboxtext">Korean</span>
+                    </div>
+
+                    <div class="squaredThree">
+                        <input type="checkbox" value="steak" id="western-cbox" name="cuisine" checked />
+                        <label for="western-cbox"></label>
+                        <span class="cboxtext">Western</span>
+                    </div>
+
+					<div class="squaredThree">
+                        <input type="checkbox" value="singaporean" id="western-cbox" name="cuisine" checked />
+                        <label for="western-cbox"></label>
+                        <span class="cboxtext">Singaporean</span>
+                    </div>
+                </fieldset>
+            </div>
+            <!--
+            <a href="preferences.html">
+                <input type="button" class="continue" id="C1" value="Continue" onClick="showLayer('page2')">
+            </a>
+            //remove useless button-->
+        </div>
+
+
+        <div id="page2" class="page">
 
 
             <h1>Preferences</h1>
@@ -31,22 +112,22 @@
                 </legend>
 
                 <div class="amount-labels">
-                    <input type="radio" id="very-cheap-price" name="amount" />
+                    <input type="radio" id="very-cheap-price" name="amount" value="$" />
                     <label for="very-cheap-price" class="light">$</label>
                 </div>
 
                 <div class="amount-labels">
-                    <input type="radio" id="cheap-pricing" name="amount" />
+                    <input type="radio" id="cheap-pricing" name="amount" value="$$" />
                     <label for="cheap-price" class="light">$$</label>
                 </div>
 
                 <div class="amount-labels">
-                    <input type="radio" id="standard-price" name="amount" />
+                    <input type="radio" id="standard-price" name="amount" value="$$$" />
                     <label for="standard-price" class="light">$$$</label>
                 </div>
 
                 <div class="amount-labels">
-                    <input type="radio" id="expensive-price" name="amount" />
+                    <input type="radio" id="expensive-price" name="amount" value="$$$$" />
                     <label for="expensive-price" name="amount" class="light">$$$$</label>
                 </div>
 
@@ -59,7 +140,8 @@
                     <span class="number">2</span>Distance:
                 </legend>
                 <p class="light">
-                    <input type="range" name="distanceInputName" id="distanceInputId" value="0.5" min="0.1" max="40.0" onchange="distanceOutputId.value = distanceInputId.value">
+                	0.1 km
+                    <input type="range" name="distance" id="distanceInputId" value="0.5" min="0.1" max="40.0" onchange="distanceOutputId.value = distanceInputId.value">
                     <output name="distanceOutputName" id="distanceOutputId">0.5</output> km</p>
             </fieldset>
             <div class="features">
@@ -71,12 +153,12 @@
 
                     <p>
                         <label for="free-wifi-switch" class="light">Free WiFi:</label>
-                        <input type="checkbox" class="js-switch" id="free-wifi-switch" checked/>
+                        <input type="checkbox" class="js-switch" id="free-wifi-switch" value="free-wifi-checked" checked/>
                     </p>
 
                     <p>
                         <label for="pokestops-nearby-switch" class="light">Pokéstops Nearby: </label>
-                        <input type="checkbox" class="js-switch" id="pokestops-nearby-switch" />
+                        <input type="checkbox" class="js-switch" id="pokestops-nearby-switch" value="pokestops-checked" />
                     </p>
 
                     <p>
@@ -94,9 +176,21 @@
                         });
                     </script>
                 </fieldset>
-                <p><input type="button" id="B1" value="Go Back" onClick="showLayer('page1')"> <input type="button" id="C2" value="Continue" onClick="showLayer('page3')"></p>
+                <p>
+                    <a href="foodchoice.html">
+                        <input type="button" id="B1" value="Go Back" onClick="showLayer('page1')">
+                    </a>
+                    <!--
+                    <a href="demo1.html">
+                        <button type="submit" id="submitbutton">Continue</button>
+                    </a>
+                    -->
+                    <button type="submit" id="submitbutton">Continue</button>
+                </p>
+
+
             </div>
-    </div>
+        </div>
     </form>
 </body>
 
