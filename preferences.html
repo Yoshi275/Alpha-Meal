@@ -48,7 +48,7 @@
         <h2 class="usernameTop">insertname99</h2>
     </div>
 
-    <form action="info.html" method="get">
+    <form id="myForm" action="landing.html" method="get">
         <div id="page1" class="page">
 
             <div class="main">
@@ -56,7 +56,7 @@
                 <h2 class="setup">Hi, <span style="color: #4bc970">insertname99!</span> What do you want to eat today?</h2>
                 <fieldset>
                     <div class="squaredThree">
-                        <input type="checkbox" value="None" id="barbeque-cbox" name="barbeque-cbox" checked />
+                        <input type="checkbox" value="bbq" id="barbeque-cbox" name="barbeque-cbox" checked />
                         <label for="barbeque-cbox"></label>
                         <span class="cboxtext">Barbeque</span>
                     </div>
@@ -91,10 +91,6 @@
                 <input type="button" class="continue" id="C1" value="Continue" onClick="showLayer('page2')">
             </a>
         </div>
-
-        <!--
---------------------------------------------------------------------------------
--->
 
 
         <div id="page2" class="page">
@@ -176,9 +172,12 @@
                     <a href="foodchoice.html">
                         <input type="button" id="B1" value="Go Back" onClick="showLayer('page1')">
                     </a>
+                    <!--
                     <a href="demo1.html">
                         <button type="submit" id="submitbutton">Continue</button>
                     </a>
+                    -->
+                    <button type="submit" id="submitbutton">Continue</button>
                 </p>
 
 
