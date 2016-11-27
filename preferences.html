@@ -53,22 +53,24 @@
 
             <div class="main">
                 <h1 class="setup">Location: 15 Jalan Chegar, Singapore 570291</h1>
+                <h3>Not your location? Type postal here:</h3>
+                <input type="text" name="location" value="" placeholder="575954"/>
                 <h2 class="setup">Hi, <span style="color: #4bc970">insertname99!</span> What do you want to eat today?</h2>
                 <fieldset>
                     <div class="squaredThree">
-                        <input type="checkbox" value="bbq" id="barbeque-cbox" name="cuisine" checked />
-                        <label for="barbeque-cbox"></label>
-                        <span class="cboxtext">Barbeque</span>
+                        <input type="checkbox" value="breakfast_brunch" id="brunch-cbox" name="cuisine" checked />
+                        <label for="brunch-cbox"></label>
+                        <span class="cboxtext">Brunch</span>
                     </div>
 
                     <div class="squaredThree">
-                        <input type="checkbox" value="chinese" id="chinese-cbox" name="cuisine" checked />
-                        <label for="chinese-cbox"></label>
-                        <span class="cboxtext">Chinese</span>
+                        <input type="checkbox" value="mexican" id="mexican-cbox" name="cuisine" checked />
+                        <label for="mexican-cbox"></label>
+                        <span class="cboxtext">Mexican</span>
                     </div>
 
                     <div class="squaredThree">
-                        <input type="checkbox" value="japanese" id="japanese-cbox" name="cuisine" checked />
+                        <input type="checkbox" value="sushi" id="japanese-cbox" name="cuisine" checked />
                         <label for="japanese-cbox"></label>
                         <span class="cboxtext">Japanese</span>
                     </div>
@@ -80,15 +82,9 @@
                     </div>
 
                     <div class="squaredThree">
-                        <input type="checkbox" value="steak" id="western-cbox" name="cuisine" checked />
+                        <input type="checkbox" value="tradamerican" id="western-cbox" name="cuisine" checked />
                         <label for="western-cbox"></label>
                         <span class="cboxtext">Western</span>
-                    </div>
-
-					<div class="squaredThree">
-                        <input type="checkbox" value="singaporean" id="western-cbox" name="cuisine" checked />
-                        <label for="western-cbox"></label>
-                        <span class="cboxtext">Singaporean</span>
                     </div>
                 </fieldset>
             </div>
@@ -98,7 +94,6 @@
             </a>
             //remove useless button-->
         </div>
-
 
         <div id="page2" class="page">
 
@@ -174,6 +169,7 @@
                         elems.forEach(function(html) {
                             var switchery = new Switchery(html);
                         });
+
                     </script>
                 </fieldset>
                 <p>

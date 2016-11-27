@@ -35,6 +35,34 @@
 	<script src="js/jquery.waypoints.min.js"></script>
 	<!-- Flexslider -->
 	<script src="js/jquery.flexslider-min.js"></script>
+  <script type="text/javascript">
+  function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        if(vars[key]){
+        if(vars[key] instanceof Array){
+          vars[key].push(value);
+        }else{
+          vars[key] = [vars[key], value];
+        }
+        }else{
+          vars[key] = value;
+        }
+        });
+    return vars;
+    }
+
+  var distance = getUrlVars()["distance"];
+  var distance = distance * 1000;
+  var cuisine = getUrlVars()["cuisine"];
+  var cuisine = cuisine.join();
+
+    console.log(distance);
+    console.log(cuisine);
+    console.log(location);
+
+  </script>
+
 
 				<p>Postcode: <input id="postcode" type="text" name="user" value="Postcode"></p>
 
@@ -59,8 +87,6 @@
 				<button onclick="query()">Search for food!</button>
 
 				<div id="results"></div>
-
-
 
 			  <!--<div id="container">
 			    <div class="buddy" style="display: block;">
@@ -117,20 +143,9 @@
             var location; //postcode
             location = $("#postcode").val();
             console.log("location",location);
+            console.log(distance); //logs distance
+            console.log(cuisine);
 
-            var cuisine = "";//category filter
-            $.each($("input[name='cuisine']:checked"), function(){
-
-                cuisine += $(this).val();
-                cuisine += ","
-				if ($(this).val() == "japanese") {cuisine += "sushi,"};
-				if ($(this).val() == "tradamerican") {cuisine += "bbq,british,french,german,"}
-				if ($(this).val() == "hotdog") {cuisine += "burgers,"};
-            });
-            cuisine = cuisine.substring(0,(cuisine.length-1))
-            console.log("cuisine:",cuisine);
-
- 			var distance = parseInt($("input[name=distance]:checked").val());
 
             var accessor = {
                 consumerSecret : auth.consumerSecret,
