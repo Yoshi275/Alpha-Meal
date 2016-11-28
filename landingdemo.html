@@ -187,7 +187,7 @@ console.log(parameters)
                       info.businesses[res_no].location.postal_code + '<br>'+
                     	'<img src='+info.businesses[res_no].image_url+'>'+ '<br>' +
                     	'<img src='+info.businesses[res_no].rating_img_url+'>'+'<br>');
-                    $("#results").append(info.businesses[res_no].name + "\n" + info.businesses[res_no].location.display_address);
+                    //$("#results").append(info.businesses[res_no].name + "\n" + info.businesses[res_no].location.display_address);
 
 
                     //end of results
@@ -220,7 +220,7 @@ console.log(parameters)
                     	'<img src='+info.businesses[res_no].rating_img_url+'>'+'<br>');
 
 				//end of results
-			var button_dunlike = $('<button onclick="dunlike()">Nope, not this one!</button>');
+			var button_dunlike = $('<br /><button onclick="dunlike()">Nope, not this one!</button>');
 			button_dunlike.appendTo($("#results"));
 			var button_like = $('<button onclick="like()">Awesome I love this lets go!</button>');
 			button_like.appendTo($("#results"));
@@ -263,7 +263,6 @@ console.log(parameters)
 			//Requres jquery mobile library but when loaded the js screws the rest of the text formatting.
 			//so the plan is to use it when I have time lol
         </script>
-
 
 	</body>
 </html>
