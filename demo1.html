@@ -3,6 +3,25 @@
 
 <head>
   <title>The Sushi Bar</title>
+  <!-- jQuery -->
+  <script src="js/jquery.min.js"></script>
+  <!-- jQuery Easing -->
+  <script src="js/jquery.easing.1.3.js"></script>
+  <!-- Bootstrap -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- Waypoints -->
+  <script src="js/jquery.waypoints.min.js"></script>
+  <!-- Flexslider -->
+  <script src="js/jquery.flexslider-min.js"></script>
+  <!-- Modernizr JS -->
+  <script src="js/modernizr-2.6.2.min.js"></script>
+  <!-- FOR IE9 below -->
+  <!--[if lt IE 9]>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+      <script type="text/javascript" src="js/oauth.js"></script>
+      <script type="text/javascript" src="js/sha1.js"></script>
   <script src="js/demo1.js"></script>
   <link rel="stylesheet" type="text/css" href="css/demo1.css" />
   <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
@@ -17,10 +36,10 @@
 
   <div class="titlethumbs"> <!--RESTAURANT NAME+THUMBS-->
       <div>
-        <img src="images/thumbsdown.png" alt="Downvote" class="thumbsdown"/>
+        <img onclick="javascript:dunlike()" src="images/thumbsdown.png" alt="Downvote" class="thumbsdown"/>
       </div>
       <div>
-        <h1>The Sushi Bar</h1>
+        <h1 id="title"></h1>
       </div>
       <div>
         <img src="images/thumbsup.png" alt="Upvote" class="thumbsup"/>
@@ -30,9 +49,10 @@
   <div class="restaurantinformation">
 
   <div>
-      <h2 id="restaurantlocation">Location: 14 Scotts Road, #04-28, Far East Plaza, Singapore 228213</h2>
-      <h2 id="restaurantcuisine">Cuisine: Sushi, Japanese Restaurants</h2>
+      <h2>Location: <span id="restaurantlocation"></span></h2>
+      <h2>Cuisine: <span id="restaurantcuisine"></span></h2>
       <h2 id="restaurantprice">Price: $$</h2>
+      <h2>Phone: <span id="restaurantphone"></span></h2>
   </div>
   </div>
 
