@@ -8,7 +8,7 @@
     <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/switchery.css" />
     <script src="js/switchery.js"></script>
-<!-- 2-PAGED FORM SCRIPT (currently not working)
+    <!-- 2-PAGED FORM SCRIPT (currently not working)
     <script language = "JavaScript" >
         var currentLayer = 'page1';
 
@@ -53,8 +53,9 @@
 
             <div class="main">
                 <h1 class="setup">Location: 15 Jalan Chegar, Singapore 570291</h1>
-                <h3>Not your location? Type postal here:</h3> <!--LOCATION-->
-                <input type="text" name="location" value="" placeholder="575954"/>
+                <h3>Not your location? Type postal here:</h3>
+                <!--LOCATION-->
+                <input type="text" name="location" placeholder="575954" />
                 <h2 class="setup">Hi, <span style="color: #4bc970">Cheryl!</span> What do you want to eat today?</h2>
                 <fieldset>
                     <div class="squaredThree">
@@ -112,18 +113,6 @@
                     </div>
 
                     <div class="squaredThree">
-                        <input type="checkbox" value="sushi" id="japanese-cbox" name="cuisine" checked />
-                        <label for="japanese-cbox"></label>
-                        <span class="cboxtext">Japanese</span>
-                    </div>
-
-                    <div class="squaredThree">
-                        <input type="checkbox" value="korean" id="korean-cbox" name="cuisine" checked />
-                        <label for="korean-cbox"></label>
-                        <span class="cboxtext">Korean</span>
-                    </div>
-
-                    <div class="squaredThree">
                         <input type="checkbox" value="mexican" id="mexican-cbox" name="cuisine" checked />
                         <label for="mexican-cbox"></label>
                         <span class="cboxtext">Mexican</span>
@@ -139,6 +128,18 @@
                         <input type="checkbox" value="vietnamese" id="vietnamese-cbox" name="cuisine" checked />
                         <label for="vietnamese-cbox"></label>
                         <span class="cboxtext">Vietnamese</span>
+                    </div>
+
+                    <div class="squaredThree">
+                        <input type="checkbox" value="sushi" id="japanese-cbox" name="cuisine" checked />
+                        <label for="japanese-cbox"></label>
+                        <span class="cboxtext">Japanese</span>
+                    </div>
+
+                    <div class="squaredThree">
+                        <input type="checkbox" value="korean" id="korean-cbox" name="cuisine" checked />
+                        <label for="korean-cbox"></label>
+                        <span class="cboxtext">Korean</span>
                     </div>
 
                     <div class="squaredThree">
@@ -196,7 +197,7 @@
                 </legend>
                 <p class="light">
 
-                    <input type="range" name="distance" id="distanceInputId" value="0.5" min="0.1" max="40.0" onchange="distanceOutputId.value = distanceInputId.value">
+                    <input type="range" name="distance" id="distanceInputId" value="0.5" min="1.0" max="40.0" onchange="distanceOutputId.value = distanceInputId.value">
                     <output name="distanceOutputName" id="distanceOutputId">0.5</output> km</p>
             </fieldset>
             <div class="features">
@@ -229,7 +230,6 @@
                         elems.forEach(function(html) {
                             var switchery = new Switchery(html);
                         });
-
                     </script>
                 </fieldset>
                 <p>
