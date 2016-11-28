@@ -98,7 +98,8 @@
         //global variables
         var info;
         var res_no;
-            //clear the results
+            function query() {
+            	//clear the results
             	$("#results").empty();
 
             	var auth = {
@@ -168,7 +169,9 @@ console.log(parameters)
                     console.log('data is', data);
                     info = data;
                     res_no = 0
-                    while (info.businesses[res_no].is_closed){res_no += 1} //make sure it is open
+                    while (info.businesses[res_no].is_closed){
+                    	res_no += 1
+                    } //make sure it is open
                     //
                     //display results
                     var restaurantName = info.businesses[res_no].name;
@@ -207,6 +210,7 @@ console.log(parameters)
 
                 }
             });
+            }//end of query()
 			function dunlike() {
 				console.log("dunlike");
 				res_no += 1;
