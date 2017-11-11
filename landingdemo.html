@@ -13,7 +13,11 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 	<link rel="stylesheet" href="css/landing.css">
-
+  <!-- For homepage-->
+  <script src="js/demo1.js"></script>
+  <!-- Following Demo Format -->
+  <link rel="stylesheet" type="text/css" href="css/demo1.css" />
+  <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
 	</head>
 
 
@@ -24,7 +28,7 @@
 		<body class="boxed">
 	-->
 	<body>
-	<h2>A minimalistic *cough cough* landing page</h2>
+	<h2>Loading...</h2>
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -35,32 +39,37 @@
 	<script src="js/jquery.waypoints.min.js"></script>
 	<!-- Flexslider -->
 	<script src="js/jquery.flexslider-min.js"></script>
+  <!-- Get Form Data -->
+  <script type="text/javascript">
+  function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        if(vars[key]){
+        if(vars[key] instanceof Array){
+          vars[key].push(value);
+        }else{
+          vars[key] = [vars[key], value];
+        }
+        }else{
+          vars[key] = value;
+        }
+        });
+    return vars;
+    }
 
-				<p>Postcode: <input id="postcode" type="text" name="user" value="Postcode"></p>
+  var distance = getUrlVars()["distance"];
+  var distance = distance * 1000;
+  var cuisine = getUrlVars()["cuisine"];
+  var cuisine = cuisine.join();
+  var location1 = getUrlVars()["location"];
 
-				<p>Cuisine: <form action="demo_form.asp" method="get" id="cuisine">
-				  <input type="checkbox" name="cuisine" value="hotdog" value="burgers"> Fast food<br>
-				  <input type="checkbox" name="cuisine" value="tradamerican" > Western <br>
-				  <input type="checkbox" name="cuisine" value="japanese"> Japanese <br>
-				  <input type="checkbox" name="cuisine" value="korean" > Korean <br>
-				  <input type="checkbox" name="cuisine" value="singaporean"> Singaporean <br>
-				  <input type="checkbox" name="cuisine" value="mexican" > Mexican <br>
-				  <input type="checkbox" name="cuisine" value="breakfast_brunch" > Brunch <br>
-				  <input type="checkbox" name="cuisine" value="desserts" > Desserts <br>
-				</form></p>
+    console.log(distance);
+    console.log(cuisine);
+    console.log(location);
 
-				<p>How far away?</p>
-				<form action="" id="distance">
-				  <input type="radio" name="distance" value=1000> 1km<br>
-				  <input type="radio" name="distance" value=5000> 5km<br>
-				  <input type="radio" name="distance" value=10000> 10km<br>
-				  <input type="radio" name="distance" value=40000> Infinity
-				</form>
-				<button onclick="query()">Search for food!</button>
+  </script>
 
 				<div id="results"></div>
-
-
 
 			  <!--<div id="container">
 			    <div class="buddy" style="display: block;">
@@ -86,8 +95,7 @@
         //global variables
         var info;
         var res_no;
-            function query() {
-            	//clear the results
+            //clear the results
             	$("#results").empty();
 
             	var auth = {
@@ -113,24 +121,10 @@
             */
             var term = ""; //shop name
 
+            console.log(location1);
+            console.log(distance); //logs distance
+            console.log(cuisine);
 
-            var location; //postcode
-            location = $("#postcode").val();
-            console.log("location",location);
-
-            var cuisine = "";//category filter
-            $.each($("input[name='cuisine']:checked"), function(){
-
-                cuisine += $(this).val();
-                cuisine += ","
-				if ($(this).val() == "japanese") {cuisine += "sushi,"};
-				if ($(this).val() == "tradamerican") {cuisine += "bbq,british,french,german,"}
-				if ($(this).val() == "hotdog") {cuisine += "burgers,"};
-            });
-            cuisine = cuisine.substring(0,(cuisine.length-1))
-            console.log("cuisine:",cuisine);
-
- 			var distance = parseInt($("input[name=distance]:checked").val());
 
             var accessor = {
                 consumerSecret : auth.consumerSecret,
@@ -138,7 +132,7 @@
             };
             parameters = [];
             parameters.push(['term', term]);
-            parameters.push(['location', location]);
+            parameters.push(['location', location1]);
             parameters.push(['category_filter', cuisine]);
             parameters.push(['radius_filter', distance]);
             parameters.push(['callback', 'cb']);
@@ -171,16 +165,31 @@ console.log(parameters)
                     console.log('data is', data);
                     info = data;
                     res_no = 0
-                    while (info.businesses[res_no].is_closed){
-                    	res_no += 1
-                    } //make sure it is open
-                    //
+                    while (info.businesses[res_no].is_closed){res_no += 1} //make sure it is open
                     //display results
+                    var restaurantName = info.businesses[res_no].name;
+                    document.write(restaurantName);
+                    var restaurantLocation = info.businesses[res_no].location.display_address;
+                    document.write(restaurantLocation);
+                    var restaurantCuisine = info.businesses[res_no].categories;
+                    console.log(restaurantCuisine);
+                    var restaurantPhone = info.businesses[res_no].display_phone;
+                    console.log(restaurantPhone);
+                    var restaurantRatingsImage = info.businesses[res_no].rating_img_url;
+                    console.log("Ratings Ready");
+                    var restaurantReservation = info.businesses[res_no].reservation_url;
+                    console.log("Reservation Ready");
+                    var restaurantImage = info.businesses[res_no].img_url;
+                    console.log("Image Ready");
+
                     $("#results").append(
                     	info.businesses[res_no].name + '<br>' + info.businesses[res_no].location.display_address + "<br>" +
+                      info.businesses[res_no].location.postal_code + '<br>'+
                     	'<img src='+info.businesses[res_no].image_url+'>'+ '<br>' +
                     	'<img src='+info.businesses[res_no].rating_img_url+'>'+'<br>');
-                    $("#results").append(info.businesses[res_no].name + "\n" + info.businesses[res_no].location.display_address);
+                    //$("#results").append(info.businesses[res_no].name + "\n" + info.businesses[res_no].location.display_address);
+
+
                     //end of results
                     //
                     //appending buttons
@@ -189,11 +198,11 @@ console.log(parameters)
     				var button_like = $('<button onclick="like()">Awesome I love this lets go!</button>');
     				button_like.appendTo($("#results"));
     				console.log('ajax done')
+
+
+
                 }
             });
-            }//end of query()
-			//document.getElementById("results").innerHTML =
-			//data.business[0].name + " " + data.business[0].location.display_address;
 			function dunlike() {
 				console.log("dunlike");
 				res_no += 1;
@@ -205,14 +214,16 @@ console.log(parameters)
 
 				//display results
                     $("#results").append(
-                    	info.businesses[res_no].name + '<br>' + info.businesses[res_no].location.display_address + "<br>" +
+
+                      info.businesses[res_no].name + '<br>' + info.businesses[res_no].location.display_address + "<br>" +
                     	'<img src='+info.businesses[res_no].image_url+'>'+ '<br>' +
                     	'<img src='+info.businesses[res_no].rating_img_url+'>'+'<br>');
+
 				//end of results
-				var button_dunlike = $('<button onclick="dunlike()">Nope, not this one!</button>');
-				button_dunlike.appendTo($("#results"));
-				var button_like = $('<button onclick="like()">Awesome I love this lets go!</button>');
-				button_like.appendTo($("#results"));
+			var button_dunlike = $('<br /><button onclick="dunlike()">Nope, not this one!</button>');
+			button_dunlike.appendTo($("#results"));
+			var button_like = $('<button onclick="like()">Awesome I love this lets go!</button>');
+			button_like.appendTo($("#results"));
 
 
 			};//end of dunlike
@@ -252,8 +263,6 @@ console.log(parameters)
 			//Requres jquery mobile library but when loaded the js screws the rest of the text formatting.
 			//so the plan is to use it when I have time lol
         </script>
-
-
 
 	</body>
 </html>

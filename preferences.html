@@ -45,7 +45,7 @@
     <div class="header">
         <h2 class="titleTop">Alpha Meal</h2>
         <img class="profile-icon" src="images/icon.png" alt="Profile Icon">
-        <h2 class="usernameTop">insertname99</h2>
+        <h2 class="usernameTop">Cheryl</h2>
     </div>
 
     <form id="myForm" action="landingdemo.html" method="get">
@@ -53,12 +53,26 @@
 
             <div class="main">
                 <h1 class="setup">Location: 15 Jalan Chegar, Singapore 570291</h1>
-                <h2 class="setup">Hi, <span style="color: #4bc970">insertname99!</span> What do you want to eat today?</h2>
+                <h3>Not your location? Type postal here:</h3> <!--LOCATION-->
+                <input type="text" name="location" placeholder="575954"/>
+                <h2 class="setup">Hi, <span style="color: #4bc970">Cheryl!</span> What do you want to eat today?</h2>
                 <fieldset>
                     <div class="squaredThree">
                         <input type="checkbox" value="bbq" id="barbeque-cbox" name="cuisine" checked />
                         <label for="barbeque-cbox"></label>
                         <span class="cboxtext">Barbeque</span>
+                    </div>
+
+                    <div class="squaredThree">
+                        <input type="checkbox" value="breakfast_brunch" id="brunch-cbox" name="cuisine" checked />
+                        <label for="brunch-cbox"></label>
+                        <span class="cboxtext">Brunch</span>
+                    </div>
+
+                    <div class="squaredThree">
+                        <input type="checkbox" value="buffets" id="buffet-cbox" name="cuisine" checked />
+                        <label for="buffet-cbox"></label>
+                        <span class="cboxtext">Buffets</span>
                     </div>
 
                     <div class="squaredThree">
@@ -68,7 +82,37 @@
                     </div>
 
                     <div class="squaredThree">
-                        <input type="checkbox" value="japanese" id="japanese-cbox" name="cuisine" checked />
+                        <input type="checkbox" value="cafes" id="dessert-cbox" name="cuisine" checked />
+                        <label for="dessert-cbox"></label>
+                        <span class="cboxtext">Desserts</span>
+                    </div>
+
+                    <div class="squaredThree">
+                        <input type="checkbox" value="halal" id="halal-cbox" name="cuisine" checked />
+                        <label for="halal-cbox"></label>
+                        <span class="cboxtext">Halal</span>
+                    </div>
+
+                    <div class="squaredThree">
+                        <input type="checkbox" value="indpak" id="indian-cbox" name="cuisine" checked />
+                        <label for="indian-cbox"></label>
+                        <span class="cboxtext">Indian</span>
+                    </div>
+
+                    <div class="squaredThree">
+                        <input type="checkbox" value="international" id="international-cbox" name="cuisine" checked />
+                        <label for="international-cbox"></label>
+                        <span class="cboxtext">International</span>
+                    </div>
+
+                    <div class="squaredThree">
+                        <input type="checkbox" value="italian" id="italian-cbox" name="cuisine" checked />
+                        <label for="italian-cbox"></label>
+                        <span class="cboxtext">Italian</span>
+                    </div>
+
+                    <div class="squaredThree">
+                        <input type="checkbox" value="sushi" id="japanese-cbox" name="cuisine" checked />
                         <label for="japanese-cbox"></label>
                         <span class="cboxtext">Japanese</span>
                     </div>
@@ -80,15 +124,27 @@
                     </div>
 
                     <div class="squaredThree">
-                        <input type="checkbox" value="steak" id="western-cbox" name="cuisine" checked />
-                        <label for="western-cbox"></label>
-                        <span class="cboxtext">Western</span>
+                        <input type="checkbox" value="mexican" id="mexican-cbox" name="cuisine" checked />
+                        <label for="mexican-cbox"></label>
+                        <span class="cboxtext">Mexican</span>
                     </div>
 
-					<div class="squaredThree">
-                        <input type="checkbox" value="singaporean" id="western-cbox" name="cuisine" checked />
+                    <div class="squaredThree">
+                        <input type="checkbox" value="thai" id="thai-cbox" name="cuisine" checked />
+                        <label for="thai-cbox"></label>
+                        <span class="cboxtext">Thai</span>
+                    </div>
+
+                    <div class="squaredThree">
+                        <input type="checkbox" value="vietnamese" id="vietnamese-cbox" name="cuisine" checked />
+                        <label for="vietnamese-cbox"></label>
+                        <span class="cboxtext">Vietnamese</span>
+                    </div>
+
+                    <div class="squaredThree">
+                        <input type="checkbox" value="tradamerican" id="western-cbox" name="cuisine" checked />
                         <label for="western-cbox"></label>
-                        <span class="cboxtext">Singaporean</span>
+                        <span class="cboxtext">Western</span>
                     </div>
                 </fieldset>
             </div>
@@ -98,7 +154,6 @@
             </a>
             //remove useless button-->
         </div>
-
 
         <div id="page2" class="page">
 
@@ -140,7 +195,7 @@
                     <span class="number">2</span>Distance:
                 </legend>
                 <p class="light">
-                	0.1 km
+
                     <input type="range" name="distance" id="distanceInputId" value="0.5" min="0.1" max="40.0" onchange="distanceOutputId.value = distanceInputId.value">
                     <output name="distanceOutputName" id="distanceOutputId">0.5</output> km</p>
             </fieldset>
@@ -174,6 +229,7 @@
                         elems.forEach(function(html) {
                             var switchery = new Switchery(html);
                         });
+
                     </script>
                 </fieldset>
                 <p>
@@ -198,8 +254,7 @@
 
 
 <!--ISSUES
-1. Second price button cannot be clicked
-2. 'Next' button to be added
-3. To be linked with first form page
+1. Price button currently unsupported in V2 so upgrade maybe?
+2. Features still unsupported
 
 -->
